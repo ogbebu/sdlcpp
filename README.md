@@ -10,4 +10,4 @@ I wanted to work on it later but it's too much job to fucking even push on githu
  it just asked for login watch this
  no login required no anything ju
  st feuw click su
- u just need to login once the first time. okay ill do it
+ u just need to login once the first time. okay ill do it brow tf lets uninstall this shit I cant login ok
