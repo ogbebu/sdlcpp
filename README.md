@@ -1,4 +1,4 @@
-# A practise game made in C++ with SDL, SDL_Image and ImGui
+# A practise game made in C++ with SDL & ImGui!
 
 ## Game Idea:
 - In future I want to add small blobs around and make squares grow when you eat blob.
