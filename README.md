@@ -5,3 +5,6 @@
 ![s1](screenshots/s2.png)
 ![s1](screenshots/s3.png)
 ![s1](screenshots/s4.png)
+
+I wanted to work on it later but it's too much job to fucking even push on github 
+ it just asked for login watch this
