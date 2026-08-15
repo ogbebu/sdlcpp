@@ -1,5 +1,8 @@
 # A practise game made in C++ with SDL, SDL_Image and ImGui
-- Creators: @itz.falco, @og.bebu
+
+## Creators:
+https://github.com/ItzFalco08/
+https://github.com/ogbebu/
 
 ## screenshots
 ![s1](screenshots/s1.png)
