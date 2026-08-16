@@ -6,7 +6,6 @@
 #include "Entity.hpp"
 #include <SDL3_image/SDL_image.h>
 
-// #include <
 void draw_imgui();
 void draw();
 void calculate_delta_time();
@@ -24,8 +23,6 @@ struct GameState {
     Entity player1{};
     Entity player2{};
 };
-
-// do it by yourself. okayy ill try my best
 
 AppState appState{};
 GameState gameState{};
@@ -62,7 +59,6 @@ int main() {
     appState.lastTime = SDL_GetPerformanceCounter();
     SDL_Event event; 
 
-    // how you removing comment from thing like yeah ctrl + / ohh thankss try
     gameState.player1.texture = IMG_LoadTexture(appState.renderer, "../textures/BebuRect.png");
     gameState.player2.texture = IMG_LoadTexture(appState.renderer, "../textures/RupamRect.png");
 
@@ -79,11 +75,11 @@ int main() {
         while (SDL_PollEvent(&event)) {
             ImGui_ImplSDL3_ProcessEvent(&event); 
 
-            if (event.type == SDL_EVENT_QUIT) // event.type tellsthe type of event (HERE, EVENT_QUIT Means closing the window)
+            if (event.type == SDL_EVENT_QUIT) 
                 running = false;
 
         }
-// idk 
+
         const bool* keystate = SDL_GetKeyboardState(nullptr);
 
         if (!io.WantCaptureKeyboard) {
@@ -122,8 +118,6 @@ void calculate_delta_time() {
     appState.lastTime = currentTime;
 }
 
-// les draw them in ms paint?
-
 void draw_imgui() {
     // Start ImGui frame
     ImGui_ImplSDLRenderer3_NewFrame();
@@ -137,7 +131,7 @@ void draw_imgui() {
 
     // if (ImGui::Checkbox("v-sync", &appState.vsync)) {
     //     SDL_SetRenderVSync(appState.renderer, appState.vsync ? 1 : 0);
-    // } // uhh it works in my computer tho okayy lets leave it its not much important function
+    // } 
 
     ImGui::Text("direction p1: x: %f, y: %f", gameState.player1.direction.x, gameState.player1.direction.y);
     ImGui::Text("direction p2: x: %f, y: %f", gameState.player2.direction.x, gameState.player2.direction.y);
@@ -147,7 +141,6 @@ void draw_imgui() {
     ImGui::End();
     ImGui::Render();
 }
-// okay try understanding the code and ask what u dont get 
 
 // Main Drawing Function 
 void draw() {

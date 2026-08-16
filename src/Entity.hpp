@@ -49,9 +49,6 @@ struct vec2 {
     }
 };
 
-// ignore vec2. it just stores float x and float y. 
-
-// this struct stores information about the player yeah soo its understood
 struct Entity {
     vec2 size{100,100};
     vec2 pos{100,100};
@@ -59,7 +56,3 @@ struct Entity {
     vec2 direction{0,0}; //x,y
     SDL_Texture* texture = nullptr;
 };
-
-// we doing pos = direction * speed * deltaTime each frame
-// and diretion is a unit vector that we edit on WASD. ohh yeahh a bit similar to Unity yeah
-// less add another player and you control the first with WAS and i controll the second with arrow keys!
