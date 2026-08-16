@@ -3,8 +3,10 @@
 #include <imgui.h>
 #include <imgui_impl_sdl3.h>
 #include <imgui_impl_sdlrenderer3.h>
-#include "Entity.hpp"
 #include <SDL3_image/SDL_image.h>
+
+#include "Functions/Entity.hpp"
+#include "Functions/Drawing.hpp"
 
 void draw_imgui();
 void draw();
@@ -62,11 +64,9 @@ int main() {
     gameState.player1.texture = IMG_LoadTexture(appState.renderer, "../../textures/BebuRect.png");
     gameState.player2.texture = IMG_LoadTexture(appState.renderer, "../../textures/RupamRect.png");
 
-    // gameState.player2.size = vec2(500,500);
-
+    // Player Speed
     gameState.player1.speed = 350.0f;
     gameState.player2.speed = 350.0f;
-    // do ctrl + shift + p then CMak
 
     while (running) {
         gameState.player1.direction = vec2(0, 0);
@@ -185,7 +185,7 @@ void draw() {
     SDL_SetRenderDrawColor(appState.renderer, 100, 100, 100, 255);
     SDL_RenderClear(appState.renderer);
 
-    // updating players data
+    // Updating players data
     gameState.player1.pos += gameState.player1.direction * gameState.player1.speed * appState.deltaTime;
     gameState.player2.pos += gameState.player2.direction * gameState.player2.speed * appState.deltaTime;
 
@@ -201,13 +201,19 @@ void draw() {
 
     // Drawing Player 1
     SDL_SetRenderDrawColor(appState.renderer, 255, 0, 0, 255);
-    SDL_FRect rect1 = { gameState.player1.pos.x, gameState.player1.pos.y, gameState.player1.size.x, gameState.player1.size.y };
-    SDL_RenderTexture(appState.renderer, gameState.player1.texture, nullptr, &rect1);
+    draw_textured_circle(appState.renderer, gameState.player1.texture, gameState.player1.pos.x, gameState.player1.pos.y, 64.0f);
+
+    // Old Drawing Method
+    //SDL_FRect rect1 = { gameState.player1.pos.x, gameState.player1.pos.y, gameState.player1.size.x, gameState.player1.size.y };
+    //SDL_RenderTexture(appState.renderer, gameState.player1.texture, nullptr, &rect1);
 
     // Drawing Player 2
     SDL_SetRenderDrawColor(appState.renderer, 0, 255, 0, 255);
-    SDL_FRect rect2 = { gameState.player2.pos.x, gameState.player2.pos.y, gameState.player2.size.x, gameState.player2.size.y };
-    SDL_RenderTexture(appState.renderer, gameState.player2.texture, nullptr, &rect2);
+    draw_textured_circle(appState.renderer, gameState.player2.texture, gameState.player2.pos.x, gameState.player2.pos.y, 64.0f);
+
+    // Old Drawing Method
+    //SDL_FRect rect2 = { gameState.player2.pos.x, gameState.player2.pos.y, gameState.player2.size.x, gameState.player2.size.y };
+    //SDL_RenderTexture(appState.renderer, gameState.player2.texture, nullptr, &rect2);
 
     // Drawing ImGui
     ImGui_ImplSDLRenderer3_RenderDrawData(ImGui::GetDrawData(), appState.renderer);

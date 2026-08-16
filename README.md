@@ -4,6 +4,10 @@
 - In future I want to add small blobs around and make squares grow when you eat blob.
 - Also I want to add texture changer, settings, better UI etc.
 
+## Latest Update:
+- Changed from rectangles to cirles which now contains textures.
+![update](screenshots/circle.png)
+
 ## Creators:
 - https://github.com/ItzFalco08/
 - https://github.com/ogbebu/
