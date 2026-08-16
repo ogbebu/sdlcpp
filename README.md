@@ -1,19 +1,33 @@
-# A practise game made in C++ with SDL & ImGui!
+# A Practice Game Made in C++ with SDL3 & ImGui
 
-## Game Idea:
-- In future I want to add small blobs around and make squares grow when you eat blob.
-- Also I want to add texture changer, shape changer, settings, better UI etc.
+## 🎮 Game Idea
 
-## Latest Update:
-- Changed from rectangles to cirles which now contains textures.
-![update](screenshots/circle.png)
+This is a small practice game I'm making to learn C++ game development with SDL3 and ImGui.
 
-## Creators:
-- https://github.com/ItzFalco08/
-- https://github.com/ogbebu/
+Planned features:
 
-## Screenshots:
-![s1](screenshots/s1.png)
-![s1](screenshots/s2.png)
-![s1](screenshots/s3.png)
-![s1](screenshots/s4.png)
+- Small blobs spawning around the map
+- Players growing when they eat blobs
+- Texture changer
+- Shape changer
+- Settings menu
+- Improved UI
+- More gameplay mechanics
+
+## 🆕 Latest Update
+
+Changed the players from rectangles to **circles with textures**.
+
+![Circle update](screenshots/circle.png)
+
+## 👥 Creators
+
+- [ItzFalco08](https://github.com/ItzFalco08/)
+- [ogbebu](https://github.com/ogbebu/)
+
+## 📸 Screenshots
+
+![Screenshot 1](screenshots/s1.png)
+![Screenshot 2](screenshots/s2.png)
+![Screenshot 3](screenshots/s3.png)
+![Screenshot 4](screenshots/s4.png)
