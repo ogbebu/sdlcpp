@@ -32,7 +32,7 @@ int main() {
     // --- SDL init ---
     SDL_Init(SDL_INIT_VIDEO);
     appState.window = SDL_CreateWindow(
-        "SDL yo", //title
+        "SDL Example Game", //title
         1280, //resx
         720, //resy
         SDL_WINDOW_RESIZABLE // window flags 
@@ -59,8 +59,8 @@ int main() {
     appState.lastTime = SDL_GetPerformanceCounter();
     SDL_Event event; 
 
-    gameState.player1.texture = IMG_LoadTexture(appState.renderer, "../textures/BebuRect.png");
-    gameState.player2.texture = IMG_LoadTexture(appState.renderer, "../textures/RupamRect.png");
+    gameState.player1.texture = IMG_LoadTexture(appState.renderer, "../../textures/BebuRect.png");
+    gameState.player2.texture = IMG_LoadTexture(appState.renderer, "../../textures/RupamRect.png");
 
     // gameState.player2.size = vec2(500,500);
 
@@ -119,28 +119,63 @@ void calculate_delta_time() {
 }
 
 void draw_imgui() {
-    // Start ImGui frame
     ImGui_ImplSDLRenderer3_NewFrame();
     ImGui_ImplSDL3_NewFrame();
     ImGui::NewFrame();
 
-    ImGui::Begin("Debug");
+    ImGui::Begin("Debug Informations");
 
-    ImGui::Text("graphics api: %s", SDL_GetRendererName(appState.renderer));
-    ImGui::Text("fps: %.3f", ImGui::GetIO().Framerate);
+    if (ImGui::BeginTabBar("DebugTabs")) {
 
-    // if (ImGui::Checkbox("v-sync", &appState.vsync)) {
-    //     SDL_SetRenderVSync(appState.renderer, appState.vsync ? 1 : 0);
-    // } 
+        // TAB 1
+        if (ImGui::BeginTabItem("Players")) {
+            ImGui::Text(
+                "Direction of Player 1: x: %f, y: %f",
+                gameState.player1.direction.x,
+                gameState.player1.direction.y
+            );
 
-    ImGui::Text("direction p1: x: %f, y: %f", gameState.player1.direction.x, gameState.player1.direction.y);
-    ImGui::Text("direction p2: x: %f, y: %f", gameState.player2.direction.x, gameState.player2.direction.y);
+            ImGui::Text(
+                "Direction of Player 2: x: %f, y: %f",
+                gameState.player2.direction.x,
+                gameState.player2.direction.y
+            );
 
-    ImGui::Text("deltatime: %.6f", appState.deltaTime);
+            ImGui::Text("DeltaTime: %.6f", appState.deltaTime);
+
+            ImGui::EndTabItem();
+        }
+
+        // TAB 2
+        if (ImGui::BeginTabItem("Graphics")) {
+            ImGui::Text(
+                "Graphics API: %s",
+                SDL_GetRendererName(appState.renderer)
+            );
+
+            ImGui::Text(
+                "FPS: %.3f",
+                ImGui::GetIO().Framerate
+            );
+
+            ImGui::EndTabItem();
+        }
+
+        // TAB 3
+        if (ImGui::BeginTabItem("Settings")) {
+            ImGui::Checkbox("V-Sync", &appState.vsync);
+
+            ImGui::EndTabItem();
+        }
+
+        ImGui::EndTabBar();
+    }
 
     ImGui::End();
+
     ImGui::Render();
 }
+
 
 // Main Drawing Function 
 void draw() {
