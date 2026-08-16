@@ -18,7 +18,7 @@ Planned features:
 
 Changed the players from rectangles to **circles with textures**.
 
-![Circle update](screenshots/circle.png)
+![Circle update](screenshots/Circle.png)
 
 ## 👥 Creators
 
